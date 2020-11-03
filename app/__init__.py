@@ -28,8 +28,6 @@ def create_app(config_name):
 
 
     # configure UploadSet
-    configure_uploads(app,photos)
-
     # Registering the blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
