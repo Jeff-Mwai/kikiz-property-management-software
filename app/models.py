@@ -66,7 +66,7 @@ class  ComplaintComment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     complaint_id = db.Column(db.Integer, db.ForeignKey("complaints.id"))
 
-    def save_comment(self):
+    def save_complaint_comment(self):
         db.session.add(self)
         db.session.commit()
     

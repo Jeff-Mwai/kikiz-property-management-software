@@ -2,10 +2,10 @@ from flask_wtf import FlaskForm
 from wtforms import TextAreaField, SubmitField
 from wtforms.validators import Required
 
-class ComplaintComment(FlaskForm):
+class ComplaintCommentForm(FlaskForm):
     complaint_comment = TextAreaField('Leave a Comment', validators=[Required()])
     submit = SubmitField('Submit')
 
-class RentComment(FlaskForm):
+class RentCommentForm(FlaskForm):
     rent_comment = TextAreaField('Leave a Comment', validators=[Required()])
     submit = SubmitField('Submit')
