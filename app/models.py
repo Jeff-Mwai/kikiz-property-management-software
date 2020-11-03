@@ -1,10 +1,10 @@
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
-from flask_login import UserMixin
-from . import login_manager
+# from flask_login import UserMixin
+# from . import login_manager
 from datetime import datetime
 
-class User(UserMixin,db.Model):
+class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer,primary_key = True)
@@ -48,7 +48,7 @@ class Complaints(db.Model):
     complaint_sorted = db.Column(db.String(255))
     dated = db.Column(db.Date)
 
-class Rent(UserMixin,db.Model):
+class Rent(db.Model):
     __tablename__ = 'rent'
 
     id = db.Column(db.Integer,primary_key = True)
