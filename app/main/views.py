@@ -3,7 +3,7 @@ from . import main
 # from .forms import RegistrationForm, LoginForm
 from ..models import User
 from .. import db
-# from flask_login import login_user,login_required, logout_user, current_user
+from flask_login import login_required #, logout_user, current_user
 
 @main.route('/')
 def home():
