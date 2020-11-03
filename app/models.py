@@ -10,12 +10,12 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True,index = True)
-    bio = db.Column(db.String(255))
-    profile_pic_path = db.Column(db.String())
+    phone_no = db.Column(db.String(20),unique = True, index = True)
+    id_no = db.Column(db.Integer,unique = True, index = True)
+    role = db.Column(db.String(255),index = True)
+    room_no = db.Column(db.Integer,unique = True, index = True)
+    description = db.Column(db.String(255))
     password_secure = db.Column(db.String(255))
-    
-
-
 
     @property
     def password(self):
@@ -37,3 +37,23 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+
+class Complaints(db.Model):
+    __tablename__ = 'complaints'
+
+    id = db.Column(db.Integer,primary_key = True)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    description = db.Column(db.String(255))
+    resolution = db.Column(db.String(255))
+    complaint_sorted = db.Column(db.String(255))
+    dated = db.Column(db.Date)
+
+class Rent(UserMixin,db.Model):
+    __tablename__ = 'rent'
+
+    id = db.Column(db.Integer,primary_key = True)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    amount = db.Column(db.Numeric(10,2))
+    description = db.Column(db.String(255))
+    month = db.Column(db.String(255))
+    dated = db.Column(db.Date)
