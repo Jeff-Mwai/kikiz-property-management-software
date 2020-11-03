@@ -57,3 +57,27 @@ class Rent(UserMixin,db.Model):
     description = db.Column(db.String(255))
     month = db.Column(db.String(255))
     dated = db.Column(db.Date)
+
+class Comment(db.Model):
+    __tablename__='comment'
+
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    blog_id = db.Column(db.Integer, db.ForeignKey("blogs.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comment.query.filter_by(blog_id=id).all()
+        return comments
+
+    def delete_comment(self):
+        db.session.delete(self)
+        db.session.commit()    
+
+    def __repr__(self):
+        return f'Comment: {self.comment}'
