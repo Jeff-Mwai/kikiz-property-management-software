@@ -86,7 +86,7 @@ class RentComment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     rent_id = db.Column(db.Integer, db.ForeignKey("rent.id"))
 
-    def save_comment(self):
+    def save_rent_comment(self):
         db.session.add(self)
         db.session.commit()
     

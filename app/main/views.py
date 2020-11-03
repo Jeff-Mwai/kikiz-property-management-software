@@ -41,3 +41,36 @@ def delete_complaint_comment(complaint_comment_id):
     db.session.commit()
    
     return redirect (url_for('main.tenants'))
+
+@main.route('/view_rent_comments/<id>')
+@login_required
+def view_rent_comments(id):
+    rent_comment = RentComment.get_rent_comments(id)
+    title = 'View Rent Comments'
+    return render_template('rent_comment.html', rent_comment=rent_comment,title=title)
+
+@main.route('/rent_comments/<int:rent_id>', methods=['GET', 'POST'])
+@login_required
+def rent_comment(complaint_id):
+    form = RentCommentForm()
+    rent = Rent.query.filter_by(id=rent_id).first()
+    if form.validate_on_submit():
+        rent_comment = form.rent_comment.data
+
+        new_rent_comment = RentComment(rent_comment=rent_comment, user_id=current_user.id,rent_id=rent_id)
+        new_rent_comment.save_rent_comment()
+
+        return redirect(url_for('main.tenants'))
+    return render_template('rent_comment.html', form=form, rent_id=rent_id)
+
+@main.route('/delete_rent_comment/<int:rent_comment_id>', methods=['GET', 'POST'])
+@login_required
+def delete_rent_comment(complaint_comment_id):
+    rent_comment =RentComment.query.get(rent_comment_id)
+    if rent_comment.user.id != current_user.id:
+        abort(403)
+    db.session.delete(rent_comment)
+    db.session.commit()
+   
+    return redirect (url_for('main.tenants'))
+
