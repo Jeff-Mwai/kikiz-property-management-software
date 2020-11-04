@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/home/andrew-john/Documents/rental/kikiz-property-management-software/virtual/bin/python3.6
+=======
+#!/home/moringa/Documents/Moringa-Projects/CORE-PYTHON/kikiz-property-management-software/virtual/bin/python2
+>>>>>>> bb5cd4133aa4d74f0947126e999ea138279514d4
 
 # -*- coding: utf-8 -*-
 import re
