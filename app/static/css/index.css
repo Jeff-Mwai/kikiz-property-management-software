@@ -113,3 +113,22 @@
 .contact-us{
     margin-top: 5%;
 }
+.contact-us .form-control{
+    width: 100%;
+}
+.contact-us .form{
+    margin-left: 10%;
+}
+.contact-us button{
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 200;
+    background-color:#4BBCFB;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 2px 2px -1px rgba(0,0,0,0.8);
+    margin-bottom: 5%;
+}
