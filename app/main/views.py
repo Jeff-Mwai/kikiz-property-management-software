@@ -65,7 +65,7 @@ def rent_comment(complaint_id):
 
 @main.route('/delete_rent_comment/<int:rent_comment_id>', methods=['GET', 'POST'])
 @login_required
-def delete_rent_comment(complaint_comment_id):
+def delete_rent_comment(rent_comment_id):
     rent_comment =RentComment.query.get(rent_comment_id)
     if rent_comment.user.id != current_user.id:
         abort(403)
