@@ -3,10 +3,12 @@
     box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);
 }
 .navbar-brand{
-    color:black;
+    margin-left: 8%;
+}
+.navbar-brand span{
     font-size: 22px;
     font-family: sans-serif;
-    margin-left: 8%;
+    color: grey;
 }
 .navbar-brand:hover{
     color: black;
@@ -64,7 +66,7 @@
     overflow-x: hidden;
 }
 .front-photo{
-    margin-top: 13%;
+    margin-top: 22%;
 }
 .front-photo p{
     color: #FFFFFF;
