@@ -1,3 +1,6 @@
+{% extends "macros.html"%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
 <article class="media content-section">
     <div class="media-body">
       <div class="article-metadata">
@@ -7,4 +10,6 @@
       <p class="article-content">{{ tenants.phone_no }}</p>
       <p class="article-content"> <a href="#">{{ tenants.email }}</a></p>
     </div>
+    <p><a class="btn btn-info" href="{{url_for('.write_complaint',id=user.id)}}">Add your Complaints</a></p>
   </article>
+  {% endblock %}
