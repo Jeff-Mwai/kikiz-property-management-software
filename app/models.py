@@ -59,7 +59,7 @@ class Rent(UserMixin,db.Model):
     dated = db.Column(db.Date)
 
 class  ComplaintComment(db.Model):
-    __tablename__='comment'
+    __tablename__='complaint_comment'
 
     id = db.Column(db.Integer, primary_key=True)
     complaint_comment = db.Column(db.String(255))
@@ -79,7 +79,7 @@ class  ComplaintComment(db.Model):
         return f'Complaint Comment: {self.complaint_comment}'
 
 class RentComment(db.Model):
-    __tablename__='comment'
+    __tablename__='rent_comment'
 
     id = db.Column(db.Integer, primary_key=True)
     rent_comment = db.Column(db.String(255))
