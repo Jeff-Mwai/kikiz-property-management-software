@@ -26,6 +26,9 @@ def profile(uname):
 
     return render_template("profile/profile.html", user = user)
 
+
+#Tenants list route 
+
 @main.route('/tenants')
 @login_required
 def tenants(tenants):
@@ -70,7 +73,7 @@ def update_profile(uname):
 
     form = UpdateProfile()
     if form.validate_on_submit():
-        user =
+        user = User(username =form.username.data, room_no= form.room_no.data, email= form.email.data, phone_no= form.phone_no.data)
         db.session.add(user)
         db.session.commit()
 
