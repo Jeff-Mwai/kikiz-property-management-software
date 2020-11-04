@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to Kikiz Property Management
+Thank you for signing up for our rental management app. Hope you enjoy our landlord and tenat features.
