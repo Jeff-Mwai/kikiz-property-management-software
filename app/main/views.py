@@ -39,12 +39,12 @@ def tenants(tenants):
 
     return render_template('tenants.html', tenants=tenants)
 
-#adding a comment
+#adding a complaints
 @main.route('/write_complaint/<int:id>', methods=['GET', 'POST'])
 @login_required
 def complaint(id):
     """ 
-    Function to post comments 
+    Function to post complaints 
     """
     
     form = ComplaintsForm()
@@ -62,7 +62,7 @@ def complaint(id):
     return render_template('complaint.html', form = form, title = title)
 
 
-
+#Updating user profile
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
 def update_profile(uname):
