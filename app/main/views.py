@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, flash, redirect, abort, reque
 from . import main
 from .forms import ComplaintCommentForm,RentCommentForm, UpdateProfile, ComplaintsForm
 from ..models import User,ComplaintComment,RentComment,Complaints
-from .. import db, photos
+from .. import db
 from flask_login import login_user,login_required, logout_user, current_user
 
 
@@ -13,12 +13,16 @@ def index():
     """
     return render_template('index.html')
 
+    
+
 @main.route('/view_complaint_comments/<id>')
 @login_required
 def view_complaint_comments(id):
     complaint_comment = ComplaintComment.get_complaint_comments(id)
     title = 'View Complaint Comments'
     return render_template('complaint_comment.html', complaint_comment=complaint_comment,title=title)
+
+
 
 @main.route('/complaint_comments/<int:complaint_id>', methods=['GET', 'POST'])
 @login_required
@@ -40,6 +44,7 @@ def delete_complaint_comment(complaint_comment_id):
     complaint_comment =ComplaintComment.query.get(complaint_comment_id)
     if complaint_comment.user.id != current_user.id:
         abort(403)
+
     db.session.delete(complaint_comment)
     db.session.commit()
    
@@ -77,6 +82,9 @@ def delete_rent_comment(rent_comment_id):
    
     return redirect (url_for('main.tenants'))
 
+
+########################################################################################################################
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
@@ -87,10 +95,9 @@ def profile(uname):
     return render_template("profile/profile.html", user = user)
 
 #Tenants list route 
-
 @main.route('/tenants')
 @login_required
-def tenants(tenants):
+def tenants():
     """
     docstring
     """
@@ -98,7 +105,8 @@ def tenants(tenants):
 
     return render_template('tenants.html', tenants=tenants)
 
-#adding a complaints
+
+#Adding a complaints
 @main.route('/write_complaint/<int:id>', methods=['GET', 'POST'])
 @login_required
 def complaint(id):
@@ -139,6 +147,11 @@ def update_profile(uname):
         return redirect(url_for('.profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)
+
+
+
+
+    ###################################################################################################################################################################
     
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
