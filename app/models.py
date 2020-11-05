@@ -27,6 +27,7 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     phone_no = db.Column(db.String(20),unique = True, index = True)
     id_no = db.Column(db.Integer,unique = True, index = True)
+    house_no = db.Column(db.String,unique = True, index = True)
     is_admin = db.Column(db.Boolean, default=False)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
@@ -51,7 +52,7 @@ class User(UserMixin,db.Model):
         db.session.commit()
 
     def __repr__(self):
-        return f'User {self.username}'
+        return f'User {self.username},{self.phone_no}, {self.id_no}, {self.house_no}, {self.email}, {self.profile_pic_path}'
 
 class Complaints(db.Model):
     __tablename__ = 'complaints'
@@ -62,6 +63,20 @@ class Complaints(db.Model):
     resolution = db.Column(db.String(255))
     complaint_sorted = db.Column(db.String(255))
     dated = db.Column(db.Date)
+
+    def save_complaint(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_complaint(cls,complaint_id):
+        complaints = Complaint.query.filter_by(complaint_id=complaint_id).all()
+
+        return complaints
+
+    
+    def __repr__(self):
+        return f'complaints:{self.complaints}'
 
 class Rent(UserMixin,db.Model):
     __tablename__ = 'rent'

@@ -1,21 +1,32 @@
-
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
-<br> <br>  <br> <br> <br> <br>
-{% for tenant in tenants%}
-<img src="" alt="Profile-pic">
-<article class="media content-section">
-  <div class="media-body">
-    <div class="article-metadata">
-      <h6>Tenant Name : <a class="article-title" href="">{{ tenant.username }}</a></h6>
-      <p>House Number : {{ tenant.room_no }}</p>
-      <p>Phone Number : {{ tenant.phone_no }}</p>
-      <p>Bio : {{ tenant.bio }}</p>
+<div class="container mt-5 pt-5">
+<div class="card">
+  <div class="row">
+    <!-- displaying  Username-->
+    <div class="col-md-4 m-5 pt-3">
+      <img src="/static/images/avatar1.png" alt="User Avatar" style="border-radius: 50%;">
+    </div>
+    <div class="col-md-4 mt-5">
+      <h3> {{user.username| capitalize}} </h3>
+      <!--Displaying user bio-->
+      {% if user.bio %}
+      <p> {{user.bio}}</p>
+      {%else%}
+      <p> Email: <a href="#">{{current_user.email}}</a></p>
+      <p>Phone Number: {{ user.phone_no }}</p>
+      <p>ID Number: {{ user.id_no }}</p>
+      <p>House Number: {{user.house_no}}</p>
+      {% endif %}
+    
+    <a href="{{url_for('main.complaint', id = user.id)}}"><button type="button" class="btn btn-primary">Complaint</button></a>
+    <button type="button" class="btn btn-primary">Rent</button>
     </div>
   </div>
-</article> <hr>
-{% endfor %}
+</div>
+
+</div>
 
 {% endblock %}

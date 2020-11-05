@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 export SECRET_KEY=a29067d856gut786
 export MAIL_USERNAME=jeffreymwai4@gmail.com
