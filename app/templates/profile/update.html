@@ -1,73 +1,8 @@
-<<<<<<< HEAD
-{% extends 'base.html'%}
-
-{% block content %}
-<div class="container">
-    <div class="row">
-        <!-- displaying  Username-->
-        <div class="col-md-4">
-            <h3> {{user.username| capitalize}} </h3>
-
-            <!--Displaying user bio-->
-            {% if user.bio %}
-            <p> {{user.bio}}</p>
-            {%else%}
-            <p> {{user.username| capitalize}} has no bio </p>
-            {% endif %}
-        </div>
-
-        <!--Display profile photo-->
-        <div class="col-md-4">
-
-            {% if user.profile_pic_path %}
-            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-            {%else%}
-            <p>No profile picture</p>
-            {% endif %}
-            {% if user == current_user %}
-            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit Bio</a>
-            {% endif %}
-            {% if user == current_user %}
-            <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post"
-                enctype="multipart/form-data">
-
-                <input type="file" name="photo" class="form-control" required>
-                <input type="submit">
-            </form>
-            {% endif %}
-        </div>
-    </div>
-</div>
-=======
-{% extends "macros.html"%}
+{% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-<form method="POST" action="">
-    {{ form.csrf_token }}
-    {{ form.hidden_tag() }}
-       <h3>UPDATE PROFILE</h3>
-       <fieldset class="form-group">
-           <div class="form-group">
-                {{ form.username.label(class="form-control-lable")}}
-                {{ form.username(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.email.label(class="form-control-lable")}}
-                {{ form.email(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.phone_no.label(class="form-control-lable")}}
-                {{ form.phone_no(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.room_no.label(class="form-control-lable")}}
-                {{ form.room_no(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.submit(class ="btn btn-outline-info")}}
-            </div>
-        </fieldset>
-</form>
->>>>>>> bb5cd4133aa4d74f0947126e999ea138279514d4
+<div class="container">
+    {{wtf.quick_form(form)}}
+</div>
 {% endblock %}
