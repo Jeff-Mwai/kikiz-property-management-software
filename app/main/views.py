@@ -13,8 +13,6 @@ def index():
     """
     return render_template('index.html')
 
-    
-
 @main.route('/view_complaint_comments/<id>')
 @login_required
 def view_complaint_comments(id):
@@ -83,7 +81,6 @@ def delete_rent_comment(rent_comment_id):
     return redirect (url_for('main.tenants'))
 
 
-########################################################################################################################
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -129,7 +126,7 @@ def complaint(id):
     return render_template('complaint.html', form = form, title = title)
 
 
-#Updating user profile
+#Updating user profile 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
 def update_profile(uname):
@@ -137,11 +134,12 @@ def update_profile(uname):
     user = User.query.filter_by(username = uname).first()
     if user is None:
         abort(404)
+    
 
     form = UpdateProfile()
     if form.validate_on_submit():
+        
         user = User(username =form.username.data, room_no= form.room_no.data, email= form.email.data, phone_no= form.phone_no.data)
-        db.session.add(user)
         db.session.commit()
 
         return redirect(url_for('.profile',uname=user.username))
@@ -149,10 +147,6 @@ def update_profile(uname):
     return render_template('profile/update.html',form =form)
 
 
-
-
-    ###################################################################################################################################################################
-    
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
 def update_pic(uname):
@@ -163,3 +157,4 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))        
+
