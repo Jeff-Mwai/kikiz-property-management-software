@@ -3,11 +3,11 @@
 
 {% block content %}
 <br> <br> <br> <br> <br> 
-<form method="POST" action="">
+<form class="m-5" method="POST" action="">
     {{ form.csrf_token }}
     {{ form.hidden_tag() }}
        <h3>UPDATE PROFILE</h3>
-       <fieldset class="form-group">
+       <fieldset class="form-group ">
            <div class="form-group">
                 {{ form.username.label(class="form-control-lable")}}
                 {{ form.username(class="form-control form-control-lg")}}

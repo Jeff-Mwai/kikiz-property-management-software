@@ -5,18 +5,17 @@
 {% block content %}
 <br> <br>  <br> <br> <br> <br>
 {% for tenant in tenants%}
+<img src="" alt="Profile-pic">
 <article class="media content-section">
   <div class="media-body">
     <div class="article-metadata">
-      <h2> <a class="article-title" href="">{{ tenant.username }}</a> </h2>
-      <small>House Number:{{ tenant.room_no }}</small> <br>
-      <small class="text-muted">Phone Number:{{ tenant.phone_no }}</small>
+      <h6>Tenant Name : <a class="article-title" href="">{{ tenant.username }}</a></h6>
+      <p>House Number : {{ tenant.room_no }}</p>
+      <p>Phone Number : {{ tenant.phone_no }}</p>
+      <p>Bio : {{ tenant.bio }}</p>
     </div>
-    <hr>
-  
-    
   </div>
-</article>
+</article> <hr>
 {% endfor %}
 
 {% endblock %}

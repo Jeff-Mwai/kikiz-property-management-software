@@ -2,14 +2,21 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<br> <br> <br> <br> <br>
+<br> <br> <br> <br> <br> <br> <br>
+<h3 class="mb-2" style="text-align: center; " >User Profile</h3>
 <div class="container">
     <div class="card">
         <div class="row">
             <!-- displaying  Username-->
-            <div class="col-md-4">
+            <div class="col-md-4 m-4">
+                {% if user.profile_pic_path %}
+                <img class="rounded-circle" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+                {%else%}
+                <img src="" alt="profile-pic">
+                {% endif %}
+            </div>
+            <div class="col-md-4 mt-4">
                 <h3> {{user.username| capitalize}} </h3>
-    
                 <!--Displaying user bio-->
                 {% if user.bio %}
                 <p> {{user.bio}}</p>
@@ -36,15 +43,6 @@
                 <h5> <a href="">Update Rent Detailes</a></h5>
                 {% endif %}
             </div>
-            <div class="">
-                {% if user.profile_pic_path %}
-                <img class="rounded-circle" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-                {%else%}
-                <img src="" alt="profile-pic">
-                {% endif %}
-            </div>
-        
-    </div>
-    
+        </div>
     </div>
    {% endblock %}
