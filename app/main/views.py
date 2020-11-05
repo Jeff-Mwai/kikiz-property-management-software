@@ -20,8 +20,6 @@ def view_complaint_comments(id):
     title = 'View Complaint Comments'
     return render_template('complaint_comment.html', complaint_comment=complaint_comment,title=title)
 
-
-
 @main.route('/complaint_comments/<int:complaint_id>', methods=['GET', 'POST'])
 @login_required
 def complaint_comment(complaint_id):
