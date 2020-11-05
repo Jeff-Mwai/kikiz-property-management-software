@@ -11,10 +11,6 @@ class RentCommentForm(FlaskForm):
     rent_comment = TextAreaField('Leave a Comment', validators=[Required()])
     submit = SubmitField('Submit')
 
-class UpdateProfile(FlaskForm):
-    bio = TextAreaField('Tell us about you.',validators = [Required()])
-    submit = SubmitField('Submit')
-
 class ComplaintsForm(FlaskForm):
 
     description = TextAreaField('Leave a comment/complaints:',validators=[Required()])

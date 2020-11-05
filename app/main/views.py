@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect, abort, request
 from . import main
-from .forms import RegistrationForm, LoginForm, ComplaintCommentForm,RentCommentForm, UpdateProfile, ComplaintsForm
+from .forms import ComplaintCommentForm,RentCommentForm, UpdateProfile, ComplaintsForm
 from ..models import User,ComplaintComment,RentComment,Complaints
 from .. import db, photos
 from flask_login import login_user,login_required, logout_user, current_user
@@ -85,21 +85,6 @@ def profile(uname):
         abort(404)
 
     return render_template("profile/profile.html", user = user)
-
-
-#user profile route
-
-@main.route('/user/<uname>')
-@login_required
-def profile(uname):
-
-    user = User.query.filter_by(username = uname).first()
-
-    if user is None:
-        abort(404)
-
-    return render_template("profile/profile.html", user = user)
-
 
 #Tenants list route 
 

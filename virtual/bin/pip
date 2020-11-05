@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 #!/home/andrew-john/Documents/rental/kikiz-property-management-software/virtual/bin/python3.6
-=======
-#!/home/moringa/Documents/Moringa-Projects/CORE-PYTHON/kikiz-property-management-software/virtual/bin/python2
->>>>>>> bb5cd4133aa4d74f0947126e999ea138279514d4
 
 # -*- coding: utf-8 -*-
 import re
 import sys
 
-<<<<<<< HEAD
 from pip import main
-=======
-from pip._internal.cli.main import main
->>>>>>> bb5cd4133aa4d74f0947126e999ea138279514d4
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])

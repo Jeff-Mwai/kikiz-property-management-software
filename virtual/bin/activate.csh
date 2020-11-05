@@ -1,29 +1,19 @@
 # This file must be used with "source bin/activate.csh" *from csh*.
 # You cannot run it directly.
 # Created by Davide Di Blasi <davidedb@gmail.com>.
-<<<<<<< HEAD
 # Ported to Python 3.3 venv by Andrew Svetlov <andrew.svetlov@gmail.com>
 
 alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PATH" && unset _OLD_VIRTUAL_PATH; rehash; test $?_OLD_VIRTUAL_PROMPT != 0 && set prompt="$_OLD_VIRTUAL_PROMPT" && unset _OLD_VIRTUAL_PROMPT; unsetenv VIRTUAL_ENV; test "\!:*" != "nondestructive" && unalias deactivate'
-=======
-
-alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PATH" && unset _OLD_VIRTUAL_PATH; rehash; test $?_OLD_VIRTUAL_PROMPT != 0 && set prompt="$_OLD_VIRTUAL_PROMPT" && unset _OLD_VIRTUAL_PROMPT; unsetenv VIRTUAL_ENV; test "\!:*" != "nondestructive" && unalias deactivate && unalias pydoc'
->>>>>>> bb5cd4133aa4d74f0947126e999ea138279514d4
 
 # Unset irrelevant variables.
 deactivate nondestructive
 
-<<<<<<< HEAD
 setenv VIRTUAL_ENV "/home/andrew-john/Documents/rental/kikiz-property-management-software/virtual"
-=======
-setenv VIRTUAL_ENV "/home/moringa/Documents/Moringa-Projects/CORE-PYTHON/kikiz-property-management-software/virtual"
->>>>>>> bb5cd4133aa4d74f0947126e999ea138279514d4
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
 
 
-<<<<<<< HEAD
 set _OLD_VIRTUAL_PROMPT="$prompt"
 
 if (! "$?VIRTUAL_ENV_DISABLE_PROMPT") then
@@ -45,26 +35,3 @@ endif
 alias pydoc python -m pydoc
 
 rehash
-=======
-
-if ("" != "") then
-    set env_name = ""
-else
-    set env_name = `basename "$VIRTUAL_ENV"`
-endif
-
-# Could be in a non-interactive environment,
-# in which case, $prompt is undefined and we wouldn't
-# care about the prompt anyway.
-if ( $?prompt ) then
-    set _OLD_VIRTUAL_PROMPT="$prompt"
-    set prompt = "[$env_name] $prompt"
-endif
-
-unset env_name
-
-alias pydoc python -m pydoc
-
-rehash
-
->>>>>>> bb5cd4133aa4d74f0947126e999ea138279514d4
