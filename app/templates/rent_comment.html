@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {{ wtf.quick_form(form) }}
+
+        </div>
+    </div>
+    {%if rent_comment %}
+    <div class="row">
+
+        {% for comment in rent_comment %}
+
+        <div class="col-md-6 border">
+            <h3>{{comment.comment}}</h3>
+            <h5>-By {{comment.user.username}}</h5>
+            <a href="/delete_complaint_comment/{{comment.id}}"><button type="button">DELETE</button></a>
+        </div>
+
+        {% endfor %}
+    </div>
+    {%else%}
+    <h1>No comments</h1>
+    {% endif %}
+</div>
+
+{% endblock %}
