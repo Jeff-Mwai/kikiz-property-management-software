@@ -13,8 +13,6 @@ def index():
     """
     return render_template('index.html')
 
-    
-
 @main.route('/view_complaint_comments/<id>')
 @login_required
 def view_complaint_comments(id):
@@ -83,7 +81,6 @@ def delete_rent_comment(rent_comment_id):
     return redirect (url_for('main.tenants'))
 
 
-########################################################################################################################
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -148,10 +145,6 @@ def update_profile(uname):
     return render_template('profile/update.html',form =form)
 
 
-
-
-    ###################################################################################################################################################################
-    
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
 def update_pic(uname):
