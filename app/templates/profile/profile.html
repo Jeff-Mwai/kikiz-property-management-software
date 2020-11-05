@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 
 {% extends 'base.html'%}
 
 {% block content %}
 <br> <br> <br> <br> <br>
 <div class="container">
+=======
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+>>>>>>> f086349b9047a30f0b8fcf6fd6207f3c348544da
     <div class="row">
         <!-- displaying  Username-->
-        <div class="col-md-4">
+        <div class="col-md-12">
             <h3> {{user.username| capitalize}} </h3>
 
             <!--Displaying user bio-->
@@ -19,6 +27,7 @@
             <p> {{user.room_no}}</p>
             {% endif %}
         </div>
+<<<<<<< HEAD
         </div>
         {% if user == current_user %}
             <a href="{{url_for('main.update_profile',uname=user.username)}}">UPDATE PROFILE</a>
@@ -28,6 +37,14 @@
         <!--Display profile photo-->
         <div class="col-md-4">
             {% if user.profile_pic_path %}
+=======
+    </div>
+    <div class="row">
+        <!--Display profile photo-->
+        {% if user.profile_pic_path %}
+
+        <div class="col-md-4">
+>>>>>>> f086349b9047a30f0b8fcf6fd6207f3c348544da
             <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
             {%else%}
             <p>No profile picture</p>
@@ -35,15 +52,22 @@
             {% if user == current_user %}
             <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit Bio</a>
             {% endif %}
-            {% if user == current_user %}
-            <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post"
-                enctype="multipart/form-data">
+            <div class="col-md-4">
+                {% if user == current_user %}
+                <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post"
+                    enctype="multipart/form-data">
 
-                <input type="file" name="photo" class="form-control" required>
-                <input type="submit">
-            </form>
-            {% endif %}
+                    <input type="file" name="photo" class="form-control" required>
+                    <input type="submit" style="color: #0000ff;">
+                </form>
+
+            </div>
         </div>
+        {% endif %}
     </div>
 </div>
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock content %}
+>>>>>>> f086349b9047a30f0b8fcf6fd6207f3c348544da
