@@ -1,8 +1,16 @@
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from . import login_manager
 from datetime import datetime
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+from flask import abort,session
+
+
+admin = Admin()
+
+
 
 @login_manager.user_loader
 
@@ -19,7 +27,7 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     phone_no = db.Column(db.String(20),unique = True, index = True)
     id_no = db.Column(db.Integer,unique = True, index = True)
-    role = db.Column(db.String(255),index = True)
+    is_admin = db.Column(db.Boolean, default=False)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_secure = db.Column(db.String(255))
@@ -109,3 +117,13 @@ class RentComment(db.Model):
     def __repr__(self):
         return f'The Rent Comment: {self.rent_comment}'
 
+class Controller(ModelView):
+    def is_accessible(self):
+        if current_user.is_admin == True:
+            return current_user.is_authenticated
+        else:
+            abort(404)
+    def not_auth(self):
+        return "you are not authorised"
+        
+admin.add_view(Controller(User, db.session))

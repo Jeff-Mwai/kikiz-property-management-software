@@ -10,7 +10,6 @@ class RegistrationForm(FlaskForm):
     username = StringField('Enter your username',validators = [Required()])
     id_no = StringField('Your Identity card number', validators=[Required()])
     phone_no = IntegerField('Enter your phone number', validators=[Required()])
-    role= RadioField('Category', choices=[('Landlord','Landlord'),('Tenant','Tenant')],validators=[Required()])
     password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
     password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
     submit = SubmitField('Sign Up')
@@ -27,6 +26,14 @@ class RegistrationForm(FlaskForm):
 class LoginForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])
     # role= RadioField('Category', choices=[('Landlord','Landlord'),('Tenant','Tenant')],validators=[Required()])
+    password = PasswordField('Password',validators =[Required()])
+    remember = BooleanField('Remember me')
+    submit = SubmitField('Sign In')
+
+
+class AdminForm(FlaskForm):
+    username = StringField('Enter your username',validators = [Required()])
+    email = StringField('Your Email Address',validators=[Required(),Email()])
     password = PasswordField('Password',validators =[Required()])
     remember = BooleanField('Remember me')
     submit = SubmitField('Sign In')
