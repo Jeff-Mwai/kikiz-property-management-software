@@ -134,9 +134,11 @@ def update_profile(uname):
     user = User.query.filter_by(username = uname).first()
     if user is None:
         abort(404)
+    
 
     form = UpdateProfile()
     if form.validate_on_submit():
+        
         user = User(username =form.username.data, room_no= form.room_no.data, email= form.email.data, phone_no= form.phone_no.data)
         db.session.commit()
 
