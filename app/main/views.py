@@ -141,7 +141,6 @@ def update_profile(uname):
     form = UpdateProfile()
     if form.validate_on_submit():
         user = User(username =form.username.data, room_no= form.room_no.data, email= form.email.data, phone_no= form.phone_no.data)
-        db.session.add(user)
         db.session.commit()
 
         return redirect(url_for('.profile',uname=user.username))
@@ -163,3 +162,4 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))        
+

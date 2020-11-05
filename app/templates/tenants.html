@@ -1,20 +1,22 @@
+
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
-<br> <br>  <br> <br> <br> <br> <br> <br>
+<br> <br>  <br> <br> <br> <br>
 {% for tenant in tenants%}
 <article class="media content-section">
-    <div class="media-body">
-      
-      <div class="article-metadata">
-        <h2> <a class="article-title" href="#">{{ tenant.username }}</a> </h2>
-      </div>
-      <p class="article-content">{{ tenant.room_no }}</p>
-      <p class="article-content">{{ tenant.phone_no }}</p>
-      <p class="article-content"> <a href="#">{{ tenants.email }}</a></p>
+  <div class="media-body">
+    <div class="article-metadata">
+      <h2> <a class="article-title" href="">{{ tenant.username }}</a> </h2>
+      <small>House Number:{{ tenant.room_no }}</small> <br>
+      <small class="text-muted">Phone Number:{{ tenant.phone_no }}</small>
     </div>
-  </article>
+    <hr>
+  
+    
+  </div>
+</article>
 {% endfor %}
 
 {% endblock %}
