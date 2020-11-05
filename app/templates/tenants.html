@@ -1,15 +1,20 @@
-{% extends "macros.html"%}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
 {% block content %}
+<br> <br>  <br> <br> <br> <br> <br> <br>
+{% for tenant in tenants%}
 <article class="media content-section">
     <div class="media-body">
+      
       <div class="article-metadata">
-        <h2> <a class="article-title" href="{{url_for('.user',id=user.id)}}">{{ tenants.user.username }}</a> </h2>
+        <h2> <a class="article-title" href="#">{{ tenant.username }}</a> </h2>
       </div>
-      <p class="article-content">{{ tenants.room_no }}</p>
-      <p class="article-content">{{ tenants.phone_no }}</p>
+      <p class="article-content">{{ tenant.room_no }}</p>
+      <p class="article-content">{{ tenant.phone_no }}</p>
       <p class="article-content"> <a href="#">{{ tenants.email }}</a></p>
     </div>
-    <p><a class="btn btn-info" href="{{url_for('.write_complaint',id=user.id)}}">Add your Complaints</a></p>
   </article>
-  {% endblock %}
+{% endfor %}
+
+{% endblock %}

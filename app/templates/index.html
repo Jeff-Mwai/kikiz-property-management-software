@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+<!-- Content block -->
+{% block content %}
+<div class="container-fluid" style="padding: 0; margin: 0;">
+    <div class="container-fluid front-photo-background" style="margin: 0; padding: 0;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="front-photo">
+                    <p class="text-center">KIKIZ PROPERTY MANAGEMENT</p>
+                    <p class="text-center" style="font-size: 30px;">We care for our clients</p>
+                </div>
+                </dicv>
+            </div>
+        </div>
+    </div>
+
+    <div class="container kikiz-rent">
+        <h1 class="text-center">KIKIZ HOMES FOR RENT</h1> <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/images/kikiz-home1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Ksh. 25,000 per Month</h5>
+                        <p class="card-text">Rent this home with only <strong>25k per
+                                month</strong> with well furnished
+                            equipments installed
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/images/kikiz-home2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Ksh. 18,000 per Month</h5>
+                        <p class="card-text">Rent this home with only <strong>18k per
+                                month</strong> with well furnished
+                            equipments installed
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/images/kikiz-home3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Ksh. 15,000 per Month</h5>
+                        <p class="card-text">Rent this home with only <strong>15k per
+                                month</strong> with well furnished
+                            equipments installed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container contact-us">
+        <h1 class="text-center">Contact Us</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="text-center">SEND FORM</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

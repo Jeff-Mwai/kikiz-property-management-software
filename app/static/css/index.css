@@ -1,0 +1,134 @@
+.navbar{
+    border-bottom: 1px solid grey;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);
+}
+.navbar-brand{
+    margin-left: 8%;
+}
+.navbar-brand span{
+    font-size: 22px;
+    font-family: sans-serif;
+    color: grey;
+}
+.navbar-brand:hover{
+    color: black;
+}
+.navbar-brand img{
+    margin-right: -5%;
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+.navbar-nav button{
+    margin-right: 8%;
+}
+.nav-signup-button{
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 200;
+    background-color:#4BBCFB;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 2px 2px -1px rgba(0,0,0,0.8);
+}
+.nav-login-button{
+    background-color: #FFFFFF;
+    border: 1px solid #4BBCFB;
+    color: #4BBCFB;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 200;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0px 2px 2px -1px rgba(0,0,0,0.8);
+}
+.nav-signup-button:hover{
+    background-color: rgba(75,188,251,0.9);
+    transition: 0.5s ease;
+}
+.nav-login-button:hover{
+    background-color: rgba(255,255,255,0.9);
+    transition: 0.5s ease;
+}
+.front-photo-background{
+    background:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("../images/rental.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.front-photo{
+    margin-top: 22%;
+}
+.front-photo p{
+    color: #FFFFFF;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.front-photo span{
+    text-align: center;
+}
+.kikiz-rent{
+    margin-top: 5%;
+}
+.kikiz-rent h1{
+    color: #616060;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.kikiz-rent .card{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    margin-left: 5%;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);
+}
+.kikiz-rent .card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.kikiz-rent .card h5{
+    font-size: 18px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    color: #494949;
+}
+.contact-us h1{
+    color: #616060;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.contact-us{
+    margin-top: 5%;
+}
+.contact-us .form-control{
+    width: 100%;
+}
+.contact-us .form{
+    margin-right: 3%;
+}
+.contact-us button{
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 200;
+    background-color:#4BBCFB;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 2px 2px -1px rgba(0,0,0,0.8);
+    margin-bottom: 6%;
+}

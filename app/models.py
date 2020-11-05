@@ -4,6 +4,10 @@ from flask_login import UserMixin
 # from . import login_manager
 from datetime import datetime
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+    
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
 
@@ -57,3 +61,48 @@ class Rent(UserMixin,db.Model):
     description = db.Column(db.String(255))
     month = db.Column(db.String(255))
     dated = db.Column(db.Date)
+
+class  ComplaintComment(db.Model):
+    __tablename__='complaint_comment'
+
+    id = db.Column(db.Integer, primary_key=True)
+    complaint_comment = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    complaint_id = db.Column(db.Integer, db.ForeignKey("complaints.id"))
+
+    def save_complaint_comment(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    @classmethod
+    def get_complaint_comments(cls,id):
+        comments = Comment.query.filter_by(complaint_id=id).all()
+        return comments
+
+    def __repr__(self):
+        return f'Complaint Comment: {self.complaint_comment}'
+
+class RentComment(db.Model):
+    __tablename__='rent_comment'
+
+    id = db.Column(db.Integer, primary_key=True)
+    rent_comment = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    rent_id = db.Column(db.Integer, db.ForeignKey("rent.id"))
+
+    def save_rent_comment(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    @classmethod
+    def get_rent_comments(cls,id):
+        comments = Comment.query.filter_by(rent_id=id).all()
+        return comments
+
+    def delete_rent_comment(self):
+        db.session.delete(self)
+        db.session.commit()    
+
+    def __repr__(self):
+        return f'The Rent Comment: {self.rent_comment}'
+
