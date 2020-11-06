@@ -1,43 +1,32 @@
-<<<<<<< HEAD
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
-<br> <br> <br> <br> <br> 
+<br> <br> <br> <br> <br>
 <form class="m-5" method="POST" action="">
     {{ form.csrf_token }}
     {{ form.hidden_tag() }}
-       <h3>UPDATE PROFILE</h3>
-       <fieldset class="form-group ">
-           <div class="form-group">
-                {{ form.username.label(class="form-control-lable")}}
-                {{ form.username(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.email.label(class="form-control-lable")}}
-                {{ form.email(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.phone_no.label(class="form-control-lable")}}
-                {{ form.phone_no(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.room_no.label(class="form-control-lable")}}
-                {{ form.room_no(class="form-control form-control-lg")}}
-            </div>
-            <div class="form-group">
-                {{ form.submit(class ="btn btn-outline-info")}}
-            </div>
-        </fieldset>
+    <h3>UPDATE PROFILE</h3>
+    <fieldset class="form-group ">
+        <div class="form-group">
+            {{ form.username.label(class="form-control-lable")}}
+            {{ form.username(class="form-control form-control-lg")}}
+        </div>
+        <div class="form-group">
+            {{ form.email.label(class="form-control-lable")}}
+            {{ form.email(class="form-control form-control-lg")}}
+        </div>
+        <div class="form-group">
+            {{ form.phone_no.label(class="form-control-lable")}}
+            {{ form.phone_no(class="form-control form-control-lg")}}
+        </div>
+        <div class="form-group">
+            {{ form.room_no.label(class="form-control-lable")}}
+            {{ form.room_no(class="form-control form-control-lg")}}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class ="btn btn-outline-info")}}
+        </div>
+    </fieldset>
 </form>
 {% endblock %}
-=======
-{% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
-
-{% block content %}
-<div class="container">
-    {{wtf.quick_form(form)}}
-</div>
-{% endblock %}
->>>>>>> f086349b9047a30f0b8fcf6fd6207f3c348544da

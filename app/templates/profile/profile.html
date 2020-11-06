@@ -2,52 +2,8 @@
 
 {% block content %}
 <br> <br> <br> <br> <br> <br> <br>
-<h3 class="mb-2" style="text-align: center; " >User Profile</h3>
+<h3 class="mb-2" style="text-align: center; ">User Profile</h3>
 <div class="container-fluid">
-
-    <div class="row">
-        <!-- displaying  Username-->
-        <div class="col-md-12">
-            <h3> {{user.username| capitalize}} </h3>
-
-            <!--Displaying user bio-->
-            {% if user.bio %}
-            <p> {{user.bio}}</p>
-            {%else%}
-            <p> {{user.username| capitalize}} has no bio </p>
-            <p> Email: <a href="#">{{current_user.email}}</a></p>
-            <p>{{ user.phone_no }}</p>
-            <p> {{user.room_no}}</p>
-            {% endif %}
-        </div>
-
-        </div>
-        {% if user == current_user %}
-            <a href="{{url_for('main.update_profile',uname=user.username)}}">UPDATE PROFILE</a>
-        {% endif %}
-        </div>
-
-    <div class="row">
-        <!--Display profile photo-->
-        {% if user.profile_pic_path %}
-
-        <div class="col-md-4">
-
-            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-            {%else%}
-            <p>No profile picture</p>
-            {% endif %}
-            {% if user == current_user %}
-            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit Bio</a>
-            {% endif %}
-            <div class="col-md-4">
-                {% if user == current_user %}
-                <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post"
-                    enctype="multipart/form-data">
-
-                    <input type="file" name="photo" class="form-control" required>
-                    <input type="submit" style="color: #0000ff;">
-                </form>
 
 
     <div class="card">
@@ -55,7 +11,8 @@
             <!-- displaying  Username-->
             <div class="col-md-4 m-4">
                 {% if user.profile_pic_path %}
-                <img class="rounded-circle" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+                <img class="rounded-circle" src="{{url_for('static',filename=user.profile_pic_path)}}" alt=""
+                    class="img-thumbnail">
                 {%else%}
                 <img src="" alt="profile-pic">
                 {% endif %}
@@ -74,25 +31,24 @@
             </div>
             <!--Display profile photo-->
             <div class="col-md-4">
-                
+
                 {% if user == current_user %}
                 <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit Bio</a>
                 {% endif %}
                 {% if user == current_user %}
                 <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post"
                     enctype="multipart/form-data">
-    
+
                     <input type="file" name="photo" class="form-control" required>
                     <input type="submit">
-                </form> <br> 
+                </form> <br>
                 <h5> <a href="">Update Rent Detailes</a></h5>
                 {% endif %}
             </div>
         </div>
-        {% endif %}
+
     </div>
 
 </div>
 
 {% endblock content %}
-
