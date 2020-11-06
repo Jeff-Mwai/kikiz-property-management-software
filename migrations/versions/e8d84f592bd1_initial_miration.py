@@ -1,8 +1,8 @@
 """initial miration
 
-Revision ID: ba4520e1947c
+Revision ID: e8d84f592bd1
 Revises: 
-Create Date: 2020-11-06 00:37:34.878276
+Create Date: 2020-11-06 09:15:33.034914
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ba4520e1947c'
+revision = 'e8d84f592bd1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,6 +24,7 @@ def upgrade():
     sa.Column('email', sa.String(length=255), nullable=True),
     sa.Column('phone_no', sa.String(length=20), nullable=True),
     sa.Column('id_no', sa.Integer(), nullable=True),
+    sa.Column('house_no', sa.String(), nullable=True),
     sa.Column('is_admin', sa.Boolean(), nullable=True),
     sa.Column('bio', sa.String(length=255), nullable=True),
     sa.Column('profile_pic_path', sa.String(), nullable=True),
@@ -31,6 +32,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_users_email'), 'users', ['email'], unique=True)
+    op.create_index(op.f('ix_users_house_no'), 'users', ['house_no'], unique=True)
     op.create_index(op.f('ix_users_id_no'), 'users', ['id_no'], unique=True)
     op.create_index(op.f('ix_users_phone_no'), 'users', ['phone_no'], unique=True)
     op.create_index(op.f('ix_users_username'), 'users', ['username'], unique=False)
@@ -84,6 +86,7 @@ def downgrade():
     op.drop_index(op.f('ix_users_username'), table_name='users')
     op.drop_index(op.f('ix_users_phone_no'), table_name='users')
     op.drop_index(op.f('ix_users_id_no'), table_name='users')
+    op.drop_index(op.f('ix_users_house_no'), table_name='users')
     op.drop_index(op.f('ix_users_email'), table_name='users')
     op.drop_table('users')
     # ### end Alembic commands ###

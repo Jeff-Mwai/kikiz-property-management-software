@@ -81,24 +81,13 @@ def delete_rent_comment(rent_comment_id):
 
 
 @main.route('/user/<uname>')
-def profile(uname):
+def tenants(uname):
     user = User.query.filter_by(username = uname).first()
 
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user)
-
-#Tenants list route 
-@main.route('/tenants')
-@login_required
-def tenants():
-    """
-    docstring
-    """
-    tenants = User.query.all()
-
-    return render_template('tenants.html', tenants=tenants)
+    return render_template("tenants.html", user = user)
 
 
 #Adding a complaints
@@ -115,13 +104,13 @@ def complaint(id):
     if form.validate_on_submit():
         description = form.description.data
         new_complaint = Complaints(description = form.description.data, user_id = current_user.id)
-        new_complaint.save_comment()
+        new_complaint.save_complaint()
 
         flash(f'Your complaint was sent succesfully !', 'success')
 
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.tenants',uname=current_user.username))
 
-    return render_template('complaint.html', form = form, title = title)
+    return render_template('complaints.html', form = form, title = title)
 
 
 #Updating user profile 
